@@ -1,5 +1,9 @@
-# redeploy trigger
 name: Deploy Eleventy site
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 on:
   push:
@@ -32,9 +36,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
 
     steps:
       - name: Deploy to GitHub Pages
